@@ -1,5 +1,10 @@
 import React, {useRef, useState} from 'react';
-import {Platform, StyleSheet, useWindowDimensions} from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  StyleSheet,
+  useWindowDimensions,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {FlashList} from '@shopify/flash-list';
@@ -33,8 +38,12 @@ export const Gallery = () => {
   };
   return (
     <>
+      <Overlay isVisible={isOverlayVisible} toggleOverlay={toggleOverlay}>
+        {selectedCard && <CardDetails data={selectedCard.current} />}
+      </Overlay>
       <SafeAreaView style={styles.galleryContainer}>
         <FlashList
+          style={{flex: 1}}
           data={galleryData}
           numColumns={galleryColNo}
           keyExtractor={(item) => item.id}
@@ -48,18 +57,19 @@ export const Gallery = () => {
               }}
             />
           )}
-          refreshing={isLoading}
+          // refreshing={isLoading}
           onRefresh={() => {
             refresh();
           }}
           onEndReached={() => {
             loadMore();
           }}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={() =>
+            isLoading ? <ActivityIndicator size={25} /> : null
+          }
         />
       </SafeAreaView>
-      <Overlay isVisible={isOverlayVisible} toggleOverlay={toggleOverlay}>
-        {selectedCard && <CardDetails data={selectedCard.current} />}
-      </Overlay>
     </>
   );
 };

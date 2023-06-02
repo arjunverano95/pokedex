@@ -27,7 +27,6 @@ export const usePokemon = () => {
   const {data, mutate, size, setSize, isValidating, isLoading} = useSWRInfinite<
     PokemonCard[]
   >(getKey, (url) => {
-    console.log(url, '<<fetch');
     return api.get(url).then((res: PokeAPIResult) => {
       const promises = res.results.map(
         (item) =>
