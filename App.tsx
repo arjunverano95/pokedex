@@ -8,18 +8,38 @@ import {createTheme, ThemeProvider} from '@rneui/themed';
 import {Colors, LightColors} from './src/app/constants';
 import {DrawerNavigation} from './src/components/Navigation';
 import RequireInternet from './src/components/RequireInternet';
-import Wrapper from './src/components/Wrapper';
 
+const theme = createTheme({
+  lightColors: LightColors,
+  mode: 'light',
+  components: {
+    Header: {
+      backgroundColor: Colors.headerBg,
+    },
+    Icon: {
+      color: Colors.black,
+      type: 'material-community',
+    },
+    Overlay: {
+      overlayStyle: {
+        backgroundColor: Colors.background,
+      },
+    },
+  },
+});
 const App = () => {
   LogBox.ignoreAllLogs();
   return (
     <>
-      <StatusBar translucent={false}></StatusBar>
+      <StatusBar
+        backgroundColor={Colors.headerBg}
+        translucent={false}
+      ></StatusBar>
       <SafeAreaProvider>
-        <>
+        <ThemeProvider theme={theme}>
           <DrawerNavigation />
           <RequireInternet />
-        </>
+        </ThemeProvider>
       </SafeAreaProvider>
     </>
   );
