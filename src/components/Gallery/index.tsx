@@ -13,7 +13,7 @@ import GalleryItem from './GalleryItem';
 
 export const Gallery = () => {
   const {width} = useWindowDimensions();
-  const {data: galleryData} = usePokemon();
+  const {data: galleryData, isLoading, loadMore, refresh} = usePokemon();
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const selectedCard = useRef<PokemonCard>(undefined);
   let galleryColNo = 2;
@@ -48,6 +48,13 @@ export const Gallery = () => {
               }}
             />
           )}
+          refreshing={isLoading}
+          onRefresh={() => {
+            refresh();
+          }}
+          onEndReached={() => {
+            loadMore();
+          }}
         />
       </SafeAreaView>
       <Overlay isVisible={isOverlayVisible} toggleOverlay={toggleOverlay}>
