@@ -1,0 +1,13 @@
+
+.env
+/.vscode
+/.github
+/.expo
+
+/android
+/ios
+/node_modules
+/package-lock.json
+/package.json
+/patches
+/web-build

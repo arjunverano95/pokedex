@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import React from 'react';
+import {LogBox} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-export default function App() {
+import {createTheme, ThemeProvider} from '@rneui/themed';
+
+import {Colors, LightColors} from './src/app/constants';
+import {DrawerNavigation} from './src/components/Navigation';
+import RequireInternet from './src/components/RequireInternet';
+import Wrapper from './src/components/Wrapper';
+
+const App = () => {
+  LogBox.ignoreAllLogs();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar translucent={false}></StatusBar>
+      <SafeAreaProvider>
+        <>
+          <DrawerNavigation />
+          <RequireInternet />
+        </>
+      </SafeAreaProvider>
+    </>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
+export default App;
