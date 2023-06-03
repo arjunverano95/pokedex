@@ -3,10 +3,11 @@ import React from 'react';
 import {LogBox} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+import {NavigationContainer} from '@react-navigation/native';
 import {createTheme, ThemeProvider} from '@rneui/themed';
 
 import {Colors, LightColors} from './src/app/constants';
-import {DrawerNavigation} from './src/components/Navigation';
+import {StackNavigation} from './src/components/Navigation';
 import RequireInternet from './src/components/RequireInternet';
 
 const theme = createTheme({
@@ -29,6 +30,7 @@ const theme = createTheme({
 });
 const App = () => {
   LogBox.ignoreAllLogs();
+
   return (
     <>
       <StatusBar
@@ -37,7 +39,9 @@ const App = () => {
       ></StatusBar>
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
-          <DrawerNavigation />
+          <NavigationContainer>
+            <StackNavigation />
+          </NavigationContainer>
           <RequireInternet />
         </ThemeProvider>
       </SafeAreaProvider>

@@ -4,10 +4,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Button, Icon} from '@rneui/themed';
 
 import {Colors, Icons} from '../app/constants';
-import {NavigationParamList, NavigationProp} from '../app/navigation/types';
+import {
+  PrivateNavigationParamList,
+  PrivateNavigationProp,
+} from '../app/navigation/types';
 
 interface HeaderProps {
-  navigation: NavigationProp<keyof NavigationParamList>;
+  navigation: PrivateNavigationProp<keyof PrivateNavigationParamList>;
   title: string;
   showBackButton?: boolean;
 }

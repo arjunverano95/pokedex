@@ -6,7 +6,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import Routes from '../../../app/navigation/routes';
+import {PrivateRoutes} from '../../../app/navigation/routes';
 
 const DrawerContent = (props: DrawerContentComponentProps) => {
   const {navigation} = props;
@@ -19,7 +19,7 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
         />
       </View>
       <View style={styles.routesContainer}>
-        {Routes.map((item) => (
+        {PrivateRoutes.map((item) => (
           <DrawerItem
             key={item.name}
             icon={() => (

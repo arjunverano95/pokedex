@@ -3,34 +3,27 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Routes, {initialRoute} from '../../../app/navigation/routes';
-import {NavigationParamList} from '../../../app/navigation/types';
+import {PrivateRoutes} from '../../../app/navigation/routes';
+import {PrivateNavigationParamList} from '../../../app/navigation/types';
 import DrawerContent from './DrawerContent';
 
-const Drawer = createDrawerNavigator<NavigationParamList>();
+const Drawer = createDrawerNavigator<PrivateNavigationParamList>();
 
 export const DrawerNavigation = () => {
   return (
-    <NavigationContainer
-      documentTitle={{
-        formatter: () => `Spectrum One Pokedex`,
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
       }}
+      drawerContent={(props) => <DrawerContent {...props} />}
     >
-      <Drawer.Navigator
-        initialRouteName={initialRoute}
-        screenOptions={{
-          headerShown: false,
-        }}
-        drawerContent={(props) => <DrawerContent {...props} />}
-      >
-        {Routes.map((item) => (
-          <Drawer.Screen
-            key={item.name}
-            name={item.name}
-            component={item.component}
-          />
-        ))}
-      </Drawer.Navigator>
-    </NavigationContainer>
+      {PrivateRoutes.map((item) => (
+        <Drawer.Screen
+          key={item.name}
+          name={item.name}
+          component={item.component}
+        />
+      ))}
+    </Drawer.Navigator>
   );
 };

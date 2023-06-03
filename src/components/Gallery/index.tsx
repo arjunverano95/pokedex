@@ -43,7 +43,7 @@ export const Gallery = () => {
       </Overlay>
       <SafeAreaView style={styles.galleryContainer}>
         <FlashList
-          style={{flex: 1}}
+          // style={{flex: 1}}
           data={galleryData}
           numColumns={galleryColNo}
           keyExtractor={(item) => item.id}
@@ -57,7 +57,7 @@ export const Gallery = () => {
               }}
             />
           )}
-          // refreshing={isLoading}
+          refreshing={isLoading}
           onRefresh={() => {
             refresh();
           }}

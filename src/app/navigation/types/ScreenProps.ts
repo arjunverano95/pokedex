@@ -1,6 +1,13 @@
 import {DrawerScreenProps} from '@react-navigation/drawer';
 
-import {NavigationParamList} from './NavigationParamList';
+import {
+  PrivateNavigationParamList,
+  PublicNavigationParamList,
+} from './NavigationParamList';
 
-export type ScreenProps<Screen extends keyof NavigationParamList> =
-  DrawerScreenProps<NavigationParamList, Screen>;
+export type PrivateScreenProps<
+  Screen extends keyof PrivateNavigationParamList,
+> = DrawerScreenProps<PrivateNavigationParamList, Screen>;
+
+export type PublicScreenProps<Screen extends keyof PublicNavigationParamList> =
+  DrawerScreenProps<PublicNavigationParamList, Screen>;
