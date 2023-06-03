@@ -1,24 +1,18 @@
-import * as SecureStore from 'expo-secure-store';
-import React, {useEffect, useState} from 'react';
+import {observer} from 'mobx-react-lite';
+import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {PublicRoutes} from '../../app/navigation/routes';
 import {PublicNavigationParamList} from '../../app/navigation/types';
+import {useAuthStore} from '../../app/stores';
 import {DrawerNavigation} from './DrawerNavigation';
 
 const Stack = createNativeStackNavigator<PublicNavigationParamList>();
 
-export const StackNavigation = () => {
-  //TODO use mobx
-  const [user, setUser] = useState(null);
+export const StackNavigation = observer(() => {
+  const {user} = useAuthStore();
 
-  useEffect(() => {
-    // TODO Move to validateUser function
-    // SecureStore.getItemAsync('user').then((item) => {
-    //   setUser(item);
-    // });
-  }, []);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -39,4 +33,4 @@ export const StackNavigation = () => {
       )}
     </Stack.Navigator>
   );
-};
+});

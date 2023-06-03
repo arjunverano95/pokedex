@@ -1,15 +1,23 @@
 import React from 'react';
 
-import {Text} from '@rneui/themed';
+import {Button} from '@rneui/themed';
 
 import {PublicScreenProps} from '../app/navigation/types';
+import {useAuthStore} from '../app/stores';
 
 const Login = (props: PublicScreenProps<'Login'>) => {
   const {navigation} = props;
 
+  const {login} = useAuthStore();
   return (
     <>
-      <Text>{'Login'}</Text>
+      <Button
+        onPress={() => {
+          login('spectrum1user', '12345');
+        }}
+      >
+        {'Login'}
+      </Button>
     </>
   );
 };

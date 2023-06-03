@@ -3,7 +3,7 @@ import {Image, StyleSheet, View} from 'react-native';
 
 import {Badge, Card, Text} from '@rneui/themed';
 
-import {Colors, Sizes, Types} from '../../app/constants';
+import {Colors, Types} from '../../app/constants';
 import {PokemonCard} from '../../models/PokemonCard';
 import CardImage from './CardImage';
 
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     marginTop: 10,
     width: '100%',
-    maxWidth: Sizes.sm,
   },
   cardTitleContainer: {flexDirection: 'row'},
   rarityBadge: {
@@ -74,7 +73,6 @@ const styles = StyleSheet.create({
   cardSubTitle: {fontWeight: 'normal'},
   imageContainer: {
     width: '100%',
-    maxWidth: Sizes.sm,
     flex: 1,
   },
   badge: {

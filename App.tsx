@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {LogBox} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createTheme, ThemeProvider} from '@rneui/themed';
 
 import {Colors, LightColors} from './src/app/constants';
+import {useAuthStore} from './src/app/stores';
 import {StackNavigation} from './src/components/Navigation';
 import RequireInternet from './src/components/RequireInternet';
 
@@ -30,7 +31,11 @@ const theme = createTheme({
 });
 const App = () => {
   LogBox.ignoreAllLogs();
+  const {validateUser} = useAuthStore();
 
+  useEffect(() => {
+    validateUser();
+  }, []);
   return (
     <>
       <StatusBar

@@ -7,5 +7,18 @@ module.exports = function (api) {
       '@babel/plugin-proposal-export-namespace-from',
       'react-native-reanimated/plugin',
     ],
+    overrides: [
+      {
+        test: (fileName) => !fileName.includes('node_modules'),
+        plugins: [
+          ['@babel/plugin-transform-flow-strip-types'],
+          ['@babel/plugin-proposal-decorators', {legacy: true}],
+          ['@babel/plugin-proposal-class-properties', {loose: false}],
+        ],
+      },
+    ],
+    assumptions: {
+      setPublicClassFields: false,
+    },
   };
 };

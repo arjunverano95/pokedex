@@ -1,15 +1,10 @@
 import React, {useRef, useState} from 'react';
-import {
-  ActivityIndicator,
-  Platform,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import {ActivityIndicator, Platform, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {FlashList} from '@shopify/flash-list';
 
-import {Colors, Sizes} from '../../app/constants';
+import {Colors} from '../../app/constants';
 import {usePokemon} from '../../app/hooks/usePokemon';
 import {PokemonCard} from '../../models/PokemonCard';
 import CardDetails from '../CardDetails';
@@ -17,21 +12,10 @@ import Overlay from '../Overlay';
 import GalleryItem from './GalleryItem';
 
 export const Gallery = () => {
-  const {width} = useWindowDimensions();
   const {data: galleryData, isLoading, loadMore, refresh} = usePokemon();
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
-  const selectedCard = useRef<PokemonCard>(undefined);
-  let galleryColNo = 2;
 
-  if (width < Sizes.sm) {
-    galleryColNo = 3;
-  } else if (width >= Sizes.sm && width < Sizes.md) {
-    galleryColNo = 5;
-  } else if (width >= Sizes.md && width < Sizes.lg) {
-    galleryColNo = 6;
-  } else {
-    galleryColNo = 9;
-  }
+  const selectedCard = useRef<PokemonCard>(undefined);
 
   const toggleOverlay = () => {
     setIsOverlayVisible(!isOverlayVisible);
@@ -45,7 +29,7 @@ export const Gallery = () => {
         <FlashList
           // style={{flex: 1}}
           data={galleryData}
-          numColumns={galleryColNo}
+          numColumns={3}
           keyExtractor={(item) => item.id}
           estimatedItemSize={100}
           renderItem={({item}) => (
@@ -65,9 +49,9 @@ export const Gallery = () => {
             loadMore();
           }}
           onEndReachedThreshold={0.5}
-          ListFooterComponent={() =>
-            isLoading ? <ActivityIndicator size={25} /> : null
-          }
+          // ListFooterComponent={() =>
+          //   isLoading ? <ActivityIndicator size={25} /> : null
+          // }
         />
       </SafeAreaView>
     </>
