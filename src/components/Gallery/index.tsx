@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {ActivityIndicator, Platform, StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {FlashList} from '@shopify/flash-list';

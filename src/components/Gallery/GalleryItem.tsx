@@ -48,9 +48,6 @@ const GalleryItem = (props: GalleryItemProps) => {
             <Text style={styles.cardTitle}>{`${data.name}`}</Text>
             {/* <Text style={styles.cardSubTitle}></Text> */}
           </View>
-          <View>
-            <Text style={styles.textContent}>{data.id}</Text>
-          </View>
         </View>
       </Pressable>
     </Card>

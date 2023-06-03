@@ -21,6 +21,7 @@ const CardDetails = (props: CardDetailsProps) => {
       <View style={styles.container}>
         <Card containerStyle={styles.cardContainer}>
           <View style={styles.cardTitleContainer}>
+            <Card.Title style={styles.cardTitle}>{`${data.name}`}</Card.Title>
             {data.types.map((type) =>
               Types[type] ? (
                 <Image
@@ -39,11 +40,15 @@ const CardDetails = (props: CardDetailsProps) => {
                 />
               ),
             )}
-            <Card.Title style={styles.cardTitle}>{`${data.name}`}</Card.Title>
           </View>
           <Card.Divider />
-          <View>
-            <Text>{`ID: ${data.id}`}</Text>
+          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            {data.stats.map((item) => (
+              <Text
+                key={`${data.id}-${item.name}`}
+                style={{width: '50%'}}
+              >{`${item.name}: ${item.value}`}</Text>
+            ))}
           </View>
         </Card>
         <View style={styles.imageContainer}>

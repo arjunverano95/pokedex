@@ -33,10 +33,13 @@ export const usePokemon = () => {
           new Promise<PokemonCard>((resolve, reject) => {
             api
               .get(item.url)
-              .then(({id, name, types}) => {
+              .then(({id, name, types, stats}) => {
                 const card: PokemonCard = {
                   id,
                   name,
+                  stats: stats.map((item) => {
+                    return {name: item.stat.name, value: item.base_stat};
+                  }),
                   types: types.map((item) => item.type.name),
                   imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
                 };
