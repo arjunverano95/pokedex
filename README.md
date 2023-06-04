@@ -8,4 +8,3 @@ A sample app demonstrating skillful usage of React Native, Expo, Typescript, Rea
 
 - Easy viewing of pokemon list and details from Pokemon API
 - Basic authentication and login screen
-- Poked paalagaan
