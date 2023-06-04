@@ -8,7 +8,6 @@ import {
   PrivateNavigationParamList,
   PrivateNavigationProp,
 } from '../app/navigation/types';
-import {useAuthStore} from '../app/stores';
 
 interface HeaderProps {
   navigation: PrivateNavigationProp<keyof PrivateNavigationParamList>;
@@ -17,7 +16,6 @@ interface HeaderProps {
 }
 const Header = (props: HeaderProps) => {
   const {navigation, title, showBackButton} = props;
-  const {logout} = useAuthStore();
   return (
     <View
       style={[
@@ -53,16 +51,6 @@ const Header = (props: HeaderProps) => {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
-        <Button
-          containerStyle={styles.logoutButtonContainer}
-          buttonStyle={styles.headerButton}
-          type="clear"
-          onPress={() => {
-            logout();
-          }}
-        >
-          <Icon name={Icons.logout} color="white" />
-        </Button>
       </View>
     </View>
   );

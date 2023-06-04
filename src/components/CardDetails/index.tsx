@@ -42,11 +42,11 @@ const CardDetails = (props: CardDetailsProps) => {
             )}
           </View>
           <Card.Divider />
-          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+          <View style={styles.statContainer}>
             {data.stats.map((item) => (
               <Text
                 key={`${data.id}-${item.name}`}
-                style={{width: '50%'}}
+                style={styles.statLabel}
               >{`${item.name}: ${item.value}`}</Text>
             ))}
           </View>
@@ -60,6 +60,8 @@ const CardDetails = (props: CardDetailsProps) => {
 };
 const styles = StyleSheet.create({
   container: {alignItems: 'center', paddingHorizontal: 10, flex: 1},
+  statContainer: {flexDirection: 'row', flexWrap: 'wrap'},
+  statLabel: {width: '50%'},
   cardContainer: {
     borderWidth: 0,
     backgroundColor: Colors.white,

@@ -5,20 +5,24 @@ import {
   DrawerContentComponentProps,
   DrawerItem,
 } from '@react-navigation/drawer';
+import {Icon} from '@rneui/themed';
 
+import {Colors, Icons} from '../../../app/constants';
 import {PrivateRoutes} from '../../../app/navigation/routes';
+import {useAuthStore} from '../../../app/stores';
 
 const DrawerContent = (props: DrawerContentComponentProps) => {
   const {navigation} = props;
+  const {logout} = useAuthStore();
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <View style={styles.drawerContentContainer}>
         <Image
           style={styles.drawerContentCoverImage}
           source={require('../../../../assets/cover.jpeg')}
         />
       </View>
-      <View style={styles.routesContainer}>
+      <View style={styles.container}>
         {PrivateRoutes.map((item) => (
           <DrawerItem
             key={item.name}
@@ -35,6 +39,14 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
             }}
           />
         ))}
+        <DrawerItem
+          key={'Logout'}
+          icon={() => <Icon name={Icons.logout} color={Colors.black} />}
+          label={'Logout'}
+          onPress={() => {
+            logout();
+          }}
+        />
       </View>
     </View>
   );
@@ -51,8 +63,7 @@ const styles = StyleSheet.create({
     height: 250,
     width: '100%',
   },
-  routesContainer: {flex: 1},
-
+  container: {flex: 1},
   iconImg: {
     height: 25,
     width: 25,

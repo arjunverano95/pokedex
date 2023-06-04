@@ -12,6 +12,8 @@ export const Icons = {
   close: 'close',
   sort_asc: 'sort-alphabetical-ascending',
   sort_desc: 'sort-alphabetical-descending',
+  show: 'eye-outline',
+  hide: 'eye-off-outline',
   no_internet: 'access-point-remove',
   download: 'cloud-download-outline',
 };

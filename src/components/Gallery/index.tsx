@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {Platform, StyleSheet} from 'react-native';
+import {ActivityIndicator, Platform, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {FlashList} from '@shopify/flash-list';
@@ -27,7 +27,6 @@ export const Gallery = () => {
       </Overlay>
       <SafeAreaView style={styles.galleryContainer}>
         <FlashList
-          // style={{flex: 1}}
           data={galleryData}
           numColumns={3}
           keyExtractor={(item) => item.id}
@@ -49,9 +48,9 @@ export const Gallery = () => {
             loadMore();
           }}
           onEndReachedThreshold={0.5}
-          // ListFooterComponent={() =>
-          //   isLoading ? <ActivityIndicator size={25} /> : null
-          // }
+          ListFooterComponent={() =>
+            isLoading ? <ActivityIndicator size={25} /> : null
+          }
         />
       </SafeAreaView>
     </>
