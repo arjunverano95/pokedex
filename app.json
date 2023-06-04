@@ -22,10 +22,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.arjunverano.spectrumonetest",
+      "buildType": "apk"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "47c91301-79d9-4d55-bf96-aa8c422c71cd"
+      }
     }
   }
 }
