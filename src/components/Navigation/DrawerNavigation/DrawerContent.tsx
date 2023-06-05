@@ -8,8 +8,8 @@ import {
 import {Icon} from '@rneui/themed';
 
 import {Colors, Icons} from '../../../app/constants';
+import {useAuthStore} from '../../../app/hooks';
 import {PrivateRoutes} from '../../../app/navigation/routes';
-import {useAuthStore} from '../../../app/stores';
 
 const DrawerContent = (props: DrawerContentComponentProps) => {
   const {navigation} = props;

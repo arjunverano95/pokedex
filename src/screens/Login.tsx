@@ -5,7 +5,7 @@ import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
 import {Button, Icon, Input, Text} from '@rneui/themed';
 
 import {Colors, Icons} from '../app/constants';
-import {useAuthStore} from '../app/stores';
+import {useAuthStore} from '../app/hooks';
 
 const Login = observer(() => {
   const {login, loading} = useAuthStore();

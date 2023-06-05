@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
 
 import {PrivateRoutes} from '../../../app/navigation/routes';
 import {PrivateNavigationParamList} from '../../../app/navigation/types';

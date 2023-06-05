@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createTheme, ThemeProvider} from '@rneui/themed';
 
 import {Colors, LightColors} from './src/app/constants';
-import {useAuthStore} from './src/app/stores';
+import {useAuthStore} from './src/app/hooks';
 import {StackNavigation} from './src/components/Navigation';
 import RequireInternet from './src/components/RequireInternet';
 

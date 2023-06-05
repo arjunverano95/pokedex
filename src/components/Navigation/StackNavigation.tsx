@@ -3,9 +3,9 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import {useAuthStore} from '../../app/hooks';
 import {PublicRoutes} from '../../app/navigation/routes';
 import {PublicNavigationParamList} from '../../app/navigation/types';
-import {useAuthStore} from '../../app/stores';
 import {DrawerNavigation} from './DrawerNavigation';
 
 const Stack = createNativeStackNavigator<PublicNavigationParamList>();

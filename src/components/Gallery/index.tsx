@@ -5,7 +5,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlashList} from '@shopify/flash-list';
 
 import {Colors} from '../../app/constants';
-import {usePokemon} from '../../app/hooks/usePokemon';
+import {usePokemon} from '../../app/hooks';
 import {PokemonCard} from '../../models/PokemonCard';
 import CardDetails from '../CardDetails';
 import Overlay from '../Overlay';
