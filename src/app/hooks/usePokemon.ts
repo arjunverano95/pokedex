@@ -12,7 +12,7 @@ interface PokeAPIResult {
   count: number;
   results: PokeAPIDetailResult[];
 }
-const PAGE_SIZE = 75;
+const PAGE_SIZE = 45;
 export const usePokemon = () => {
   const getKey: SWRInfiniteKeyLoader = (index) => {
     const page = index + 1;
