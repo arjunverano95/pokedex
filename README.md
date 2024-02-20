@@ -1,4 +1,4 @@
-# <img src="https://i.imgur.com/wAKGOGf.png" alt="icon" width="25"/> Spectrum One - Take Home Assignment
+# <img src="https://i.imgur.com/wAKGOGf.png" alt="icon" width="25"/> Pokedex
 
 A sample app demonstrating skillful usage of React Native, Expo, Typescript, React Native Elements, Axios, SWR, Mobx and PokeAPI.
 
